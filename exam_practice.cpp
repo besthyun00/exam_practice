@@ -1,17 +1,21 @@
 #include <cstdio>
+#include <cstdlib>
 
-int ArrayMax(int score[], int n) {
-	int tmp = score[0];
-	for (int i = 1;i < n;i++) {
-		if (score[i] > tmp) {
-			tmp = score[i];
+int factorial(int n) {
+	for (int i = 0;i < n;i++) {
+		if (n == 1) {
+			return 1;
+		}
+		else {
+			return n * factorial(n - 1);
 		}
 	}
-	return tmp;
 }
 
 int main(void) {
-	int score[6] = { 27,35,67,45,34,65 };
-	int bestScore = ArrayMax(score, 6);
-	printf("최고 점수는 %d점 입니다.", bestScore);
+	int number;
+	printf("숫자를 입력하시오: ");
+	scanf_s("%d", &number);
+	int fact_number = factorial(number);
+	printf("n!=%d", fact_number);
 }
